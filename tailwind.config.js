@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     extend: {
-      "yellow": "#FCB913",
+      "yellow-30": "#FCB913",
       "light-blue-20": "#1C88C8",
       "white": "#FFFFFF",
       "sky-blue": "#A0DCFF",
