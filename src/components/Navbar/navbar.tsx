@@ -4,8 +4,11 @@ import Logo from "@/assets/logo.svg"
 type Props = {}
 
 const Navbar = (props: Props) => {
+    const flexBetween = "flex items-center justify-between"
   return (
-    <div  className=''>navbar is working</div>
+    <nav>
+        className={`${flexBetween} fixed top-0 z-30 w-full py-6`}
+    </nav>
   )
 }
 
