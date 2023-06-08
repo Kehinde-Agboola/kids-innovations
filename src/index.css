@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+html, body, :root{
   font-family: 'Inter', sans-serif;
+  height: 100%;
+  width: 100%;
+
+}
+img{
+  width: 100%;
 }

@@ -1,8 +1,9 @@
+import Navbar from "@/components/Navbar/navbar"
 function App() {
 
  return (
-  <div className='app bg-gray-600 p-10 text-yellow-30 text-2xl'>app
-  <p className="bg-yellow-30">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, possimus.</p>
+  <div className='app bg-gray-600 p-10 text-green-400 text-2xl'>
+    <Navbar/>
   </div>
  )
 }
