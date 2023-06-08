@@ -3,12 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+*, html{
+  margin: 0%;
+  padding: 0%;
+  /* border-box: ; */
+  box-sizing: border-box;
+}
 html, body, :root{
   font-family: 'Inter', sans-serif;
   height: 100%;
   width: 100%;
 
-}
-img{
-  width: 100%;
 }
