@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import Logo from "@/assets/logo.svg"
 import Link from './Link';
 import { SelectedPage } from '../shared/types';
+import useMediaQuery from '@/hooks/useMediaQuery';
 // import {SelectedPage} from "@./shared/types";
 // import {selectedPage} from '@./shared/types';
 type Props = {
@@ -12,7 +13,8 @@ type Props = {
 }
 
 const Navbar = ({ selectedPage, setSelectedPage}: Props) => {
-    const flexBetween = "flex items-center justify-between"
+    const flexBetween = "flex items-center justify-between";
+    const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)")
   return (
     <nav>
         <div className={`${flexBetween} fixed top-0 z-30 w-full py-3`}>
@@ -21,45 +23,46 @@ const Navbar = ({ selectedPage, setSelectedPage}: Props) => {
                     {/* left--side */}
                     <a href="/"><img src={Logo} alt="logo" /></a>
 
-                    {/* right--side */}
-                    {/* <div className={`${flexBetween} w-full `}> */}
-                        { <div>
-                            <ul  className={`${flexBetween} gap-8 text-sm`}>
-                                {/* <li><a href="#">Home</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Courses</a></li>
-                                <li><a href="#">Community</a></li>
-                                <li><a href="#">Sponsor a Child</a></li> */}
-                                <Link page="Home" 
-                                selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage}
-                                 />
-                                <Link page="About" 
-                                selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage}
-                                 />
-                                <Link page="Courses" 
-                                selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage}
-                                 />
-                                <Link page="Community" 
-                                selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage}
-                                 />
-                                <Link page="Sponsor a Child" 
-                                selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage}
-                                 />
-                              
-                            </ul>
-                        </div> }
-                        <div className={`${flexBetween} gap-8 text-sm`}>
-                            <p>Sign In</p>
-                            <p>Become a Memeber</p>
-                        </div>
-                    {/* </div> */}
+                
+                    { isAboveMediumScreens ? (
+                        <div>
+                        <ul  className={`${flexBetween} gap-8 text-sm`}>
+                           
+                            <Link page="Home" 
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                             />
+                            <Link page="About" 
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                             />
+                            <Link page="Courses" 
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                             />
+                            <Link page="Community" 
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                             />
+                            <Link page="Sponsor a Child" 
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                             />
+                          
+                        </ul>
+                    
+                    <div className={`${flexBetween} gap-8 text-sm`}>
+                        <p>Sign In</p>
+                        <button>Become a Memeber</button>
+                    </div> 
                 </div>
+                ) : ( 
+                    <button className='rounded-full bg-slate-200 p-2' onClick={() => setIsMenuToggle(!isMenuToggled)}> 
+                        <Bars3Icon className='h-6 w-6 text-white' />
+                    </button>
+                )}
             </div>
+        </div>
         </div>
     </nav>
   )
