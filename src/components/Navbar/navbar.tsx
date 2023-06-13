@@ -1,9 +1,17 @@
 import {useState} from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import Logo from "@/assets/logo.svg"
-type Props = {}
+import Link from './Link';
+import { SelectedPage } from '../shared/types';
+// import {SelectedPage} from "@./shared/types";
+// import {selectedPage} from '@./shared/types';
+type Props = {
+    page: string;
+    selectedPage: SelectedPage,
+    setSelectedPage: (value: SelectedPage ) => void;
+}
 
-const Navbar = (props: Props) => {
+const Navbar = ({ selectedPage, setSelectedPage}: Props) => {
     const flexBetween = "flex items-center justify-between"
   return (
     <nav>
@@ -17,11 +25,32 @@ const Navbar = (props: Props) => {
                     {/* <div className={`${flexBetween} w-full `}> */}
                         { <div>
                             <ul  className={`${flexBetween} gap-8 text-sm`}>
-                                <li><a href="#">Home</a></li>
+                                {/* <li><a href="#">Home</a></li>
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">Courses</a></li>
                                 <li><a href="#">Community</a></li>
-                                <li><a href="#">Sponsor a Child</a></li>
+                                <li><a href="#">Sponsor a Child</a></li> */}
+                                <Link page="Home" 
+                                selectedPage={selectedPage}
+                                setSelectedPage={setSelectedPage}
+                                 />
+                                <Link page="About" 
+                                selectedPage={selectedPage}
+                                setSelectedPage={setSelectedPage}
+                                 />
+                                <Link page="Courses" 
+                                selectedPage={selectedPage}
+                                setSelectedPage={setSelectedPage}
+                                 />
+                                <Link page="Community" 
+                                selectedPage={selectedPage}
+                                setSelectedPage={setSelectedPage}
+                                 />
+                                <Link page="Sponsor a Child" 
+                                selectedPage={selectedPage}
+                                setSelectedPage={setSelectedPage}
+                                 />
+                              
                             </ul>
                         </div> }
                         <div className={`${flexBetween} gap-8 text-sm`}>
