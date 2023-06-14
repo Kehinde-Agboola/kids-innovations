@@ -1,11 +1,16 @@
 import {useState} from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { motion } from "framer-motion";
 import Logo from "@/assets/logo.svg"
 import useMediaQuery from '@/hooks/useMediaQuery';
 
 
+const variants = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: "-100%" },
+}
 const Navbar = () => {
-    const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+ const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
     const flexBetween = "flex items-center justify-between";
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   return (
@@ -24,6 +29,7 @@ const Navbar = () => {
                            <li><a href="#">Community</a></li>
                            <li><a href="#">Sponsor a Child</a></li>
                         </ul>
+                      
                      
                     
                     <div className={`${flexBetween} gap-8 text-sm`}>
